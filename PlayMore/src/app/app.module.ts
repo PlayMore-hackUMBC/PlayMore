@@ -8,6 +8,9 @@ import { GamesPageComponent } from './games-page/games-page.component';
 import { ReviewsPageComponent } from './reviews-page/reviews-page.component';
 import { LoginPageComponent } from './login-page/login-page.component';
 import { CreateReviewComponent } from './create-review/create-review.component';
+import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+
 
 @NgModule({
   declarations: [
@@ -20,7 +23,9 @@ import { CreateReviewComponent } from './create-review/create-review.component';
   ],
   imports: [
     BrowserModule,
-    AppRoutingModule
+    AppRoutingModule,
+    NgbModule,
+    BrowserAnimationsModule
   ],
   providers: [],
   bootstrap: [AppComponent]
