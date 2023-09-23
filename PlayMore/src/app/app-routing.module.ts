@@ -6,10 +6,12 @@ import { HomePageComponent } from './home-page/home-page.component';
 import { GamesPageComponent } from './games-page/games-page.component';
 import { ReviewsPageComponent } from './reviews-page/reviews-page.component';
 import { LoginPageComponent } from './login-page/login-page.component';
+import { GameTemplateComponent } from './game-template/game-template.component';
 
 const routes: Routes = [
   { path: 'home', component: HomePageComponent },
   { path: 'games', component: GamesPageComponent },
+  { path: 'games/:gameId', component: GameTemplateComponent },
   { path: 'reviews', component: ReviewsPageComponent },
   { path: 'login', component: LoginPageComponent },
   { path: '**', component: HomePageComponent },

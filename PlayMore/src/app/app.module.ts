@@ -11,6 +11,7 @@ import { CreateReviewComponent } from './create-review/create-review.component';
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { HttpClientModule } from '@angular/common/http';
+import { GameTemplateComponent } from './game-template/game-template.component';
 
 @NgModule({
   declarations: [
@@ -19,7 +20,8 @@ import { HttpClientModule } from '@angular/common/http';
     GamesPageComponent,
     ReviewsPageComponent,
     LoginPageComponent,
-    CreateReviewComponent
+    CreateReviewComponent,
+    GameTemplateComponent
   ],
   imports: [
     BrowserModule,

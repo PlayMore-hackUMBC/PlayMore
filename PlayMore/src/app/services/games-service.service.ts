@@ -1,33 +1,53 @@
 import { Injectable } from '@angular/core';
 import { HttpClient, HttpHeaders } from '@angular/common/http';
+import { Game_Service } from '../interfaces'
 
-
+export interface token_response {
+  access_token: any,
+  expires_in: number,
+  token_type: string
+}
 
 @Injectable({
   providedIn: 'root'
 })
 export class GamesServiceService {
-  private games_url = 'https://api.igdb.com/v4'
-  private token_req = 'https://id.twitch.tv/oauth2/token'
-  private token : any
-  client_id= 'yufxbypgbmtv4cw8gojp0pjamus1q6'
-
-  client_secret='6rt25yje2my2na1g2huu0xy2wctvht'
   
+  private games_server = "http://localhost:3000"
+  private games: any;
 
-  constructor(private http: HttpClient) { 
+  constructor(private http: HttpClient) {
+    this.games = this.http.post(this.games_server+"/v4/games", {})
+  }
 
-    // http_token = http.post()
-    let header = new HttpHeaders({"client_id":this.client_id, "client_secret":this.client_secret, "grant_type":"client_credentials" })
-
-    this.token = http.post(this.token_req, {}, {headers: header}).subscribe(data<token_response> => {
-      return data.access_token
-    })
-
+  //  delay funtino from this stack overflow:
+  private  delay(ms: number) {
+    return new Promise( resolve => setTimeout(resolve, ms) );
   }
 
 
+  // This function waits untill te toke to access the games database expires and then generates a new token
+  private async getNewToken(time: any){
+    // need to sleep to the time till expires
+    await this.delay(time)
+    // this.token = http.post(this.token_req, {}, {headers: header}).subscribe(data<token_response> => {
+    //   getNewToken(data.expires_in) // get the new token when the old one expires
+    //   return data.access_token
+    // })
+  }
 
 
+  public getGames(){
+    return this.http.post(this.games_server+"/v4/games", {})
+    // .subscribe(resp => {
+    //   console.log("Got the games")
+    //   return resp
+    // })
+  }
+
+
+  public getGameById(gameId:number){
+    return this.http.post(this.games_server+"/v4/games/id", {id:gameId})
+  }
 
 }
