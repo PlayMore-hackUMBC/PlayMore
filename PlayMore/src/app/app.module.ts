@@ -31,6 +31,7 @@ import { getRemoteConfig, provideRemoteConfig } from '@angular/fire/remote-confi
 import { getAnalytics, provideAnalytics, ScreenTrackingService, UserTrackingService } from '@angular/fire/analytics';
 import { getMessaging, provideMessaging } from '@angular/fire/messaging';
 import { provideAuth, connectAuthEmulator, getAuth } from '@angular/fire/auth';
+import { AboutPageComponent } from './about-page/about-page.component';
 
 
 let resolvePersistenceEnabled: (enabled: boolean) => void;
@@ -48,7 +49,8 @@ export const persistenceEnabled = new Promise<boolean>(resolve => {
     ReviewsPageComponent,
     LoginPageComponent,
     CreateReviewComponent,
-    GameTemplateComponent
+    GameTemplateComponent,
+    AboutPageComponent
   ],
   imports: [
     BrowserModule,
