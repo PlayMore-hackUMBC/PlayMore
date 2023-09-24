@@ -32,6 +32,7 @@ import { getAnalytics, provideAnalytics, ScreenTrackingService, UserTrackingServ
 import { getMessaging, provideMessaging } from '@angular/fire/messaging';
 import { provideAuth, connectAuthEmulator, getAuth } from '@angular/fire/auth';
 import { AboutPageComponent } from './about-page/about-page.component';
+import { SearchPageComponent } from './search-page/search-page.component';
 
 
 let resolvePersistenceEnabled: (enabled: boolean) => void;
@@ -50,7 +51,8 @@ export const persistenceEnabled = new Promise<boolean>(resolve => {
     LoginPageComponent,
     CreateReviewComponent,
     GameTemplateComponent,
-    AboutPageComponent
+    AboutPageComponent,
+    SearchPageComponent
   ],
   imports: [
     BrowserModule,

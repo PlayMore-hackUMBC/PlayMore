@@ -8,6 +8,7 @@ import { ReviewsPageComponent } from './reviews-page/reviews-page.component';
 import { LoginPageComponent } from './login-page/login-page.component';
 import { GameTemplateComponent } from './game-template/game-template.component';
 import { AboutPageComponent } from './about-page/about-page.component';
+import { SearchPageComponent } from './search-page/search-page.component';
 
 const routes: Routes = [
   { path: 'home', component: HomePageComponent },
@@ -15,6 +16,8 @@ const routes: Routes = [
   { path: 'games/:gameId', component: GameTemplateComponent },
   { path: 'reviews', component: ReviewsPageComponent },
   { path: 'about', component: AboutPageComponent },
+  { path: 'search/:searchval', component: SearchPageComponent },
+  { path: 'search', component: SearchPageComponent },
   { path: 'login', component: LoginPageComponent },
   { path: '**', component: HomePageComponent },
   { path: '', redirectTo:'/home', pathMatch: 'full'},];
