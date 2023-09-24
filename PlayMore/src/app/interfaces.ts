@@ -36,12 +36,12 @@ export interface Game_Service{
 }
 
 export interface Review {
-    id : string;
+    id? : string;
     game_id : string;
     title : string;
     text : string;
     date_created : string;
-    feature_ratings : Feature_Rating[];
+    feature_ratings? : Feature_Rating[];
     username: string;
     user_id: string;
 }

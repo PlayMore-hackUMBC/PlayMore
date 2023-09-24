@@ -2,7 +2,7 @@ import { Injectable } from '@angular/core';
 import { Observable, pipe, map, switchMap, concatMap, combineLatest, combineAll, concat, Subject, combineLatestAll, concatAll } from 'rxjs';
 import { persistenceEnabled as _persistenceEnabled } from '../app.module';
 import { traceUntilFirst } from '@angular/fire/performance';
-import { collection, collectionData, doc, docData, Firestore, CollectionReference, query, where, getDocs } from '@angular/fire/firestore';
+import { collection, collectionData, doc, docData, addDoc, Firestore, CollectionReference, query, where, getDocs } from '@angular/fire/firestore';
 import { Review, Feature_Rating, Disability } from '../interfaces';
 @Injectable({
   providedIn: 'root'
@@ -54,4 +54,11 @@ export class FirestoreService {
     const disabilities = collection(this.firestore, "disabilities");
     return collectionData(disabilities) as Observable<Disability[]>;
   }
+
+  /*async add_review(review : Review) {
+    console.log("called");
+    const ref = collection(this.firestore, "reviews");
+    const docRef = await addDoc(ref, review);
+    console.log("created id", docRef.id);
+  }*/
 }
