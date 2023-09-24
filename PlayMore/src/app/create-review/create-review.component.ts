@@ -11,10 +11,16 @@ import { formatDate } from '@angular/common';
 })
 export class CreateReviewComponent {
 
+  public motor: boolean = false;
+  public hear: boolean = false;
+  public see:boolean=false;
+  public other:boolean=false;
+
   constructor(
     public dialogRef: MatDialogRef<CreateReviewComponent>,
     @Inject(MAT_DIALOG_DATA) public data: Review) {
       data.date_created = String(new Date());
+      data.game_id = String(new Date());
       data.feature_ratings= [
         {"disability": "Hard of Hearing or Deaf", "name": "Subtitles", "rating": -1},
         {"disability": "Hard of Hearing or Deaf", "name": "Directional Indicators for Subtitles","rating": -1},
@@ -37,5 +43,21 @@ export class CreateReviewComponent {
 
   onNoClick(): void {
     this.dialogRef.close();
+  }
+
+  show(flip: string){
+    console.log(flip)
+    if (flip == 'hear'){
+      this.hear = !this.hear
+    }
+    if(flip == 'motor'){
+      this.motor = !this.motor
+    }
+    if (flip == 'see'){
+      this.see = !this.see
+    }
+    if(flip == 'other'){
+      this.other = !this.other
+    }
   }
 }

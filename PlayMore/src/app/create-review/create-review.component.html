@@ -15,8 +15,16 @@
         </div>  
         <label>Ratings</label>
         
-            <label>Hard of Hearing or Deaf</label>
-            <div class="container">
+            <!-- <label>Hard of Hearing or Deaf</label> -->
+            <div class="row mt-3 justify-content-between">
+                <div class="btn btn-outline-secondary" (click)="show('hear')">
+                <div class="col">Hard of Hearing or Deaf</div>
+                <div class="col"><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-caret-down-fill" viewBox="0 0 16 16">
+                    <path d="M7.247 11.14 2.451 5.658C1.885 5.013 2.345 4 3.204 4h9.592a1 1 0 0 1 .753 1.659l-4.796 5.48a1 1 0 0 1-1.506 0z"/>
+                  </svg></div>
+                </div>
+            </div>
+            <div *ngIf="hear" class="container">
 
                 <label>Subtitles</label>
                 <div class="col mt-2" id="Subtitles">
@@ -222,7 +230,8 @@
 
 
             <label>Motor Disability"</label>
-            <div class="container">
+
+            <div *ngIf="motor" class="container">
                 <label>Remapping controls</label>
                 <div class="col mt-2" id="Remapping controls">
                     <div class="form-check form-check-inline">
