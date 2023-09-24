@@ -11,11 +11,17 @@ import { formatDate } from '@angular/common';
 })
 export class CreateReviewComponent {
 
+  public motor: boolean = false;
+  public hear: boolean = false;
+  public see:boolean=false;
+  public other:boolean=false;
+
   constructor(
     public dialogRef: MatDialogRef<CreateReviewComponent>,
     @Inject(MAT_DIALOG_DATA) public data: Review) {
-      this.data.date_created = String(new Date());
-      this.data.feature_ratings= [
+      data.date_created = String(new Date());
+      data.game_id = String(new Date());
+      data.feature_ratings= [
         {"disability": "Hard of Hearing or Deaf", "name": "Subtitles", "rating": -1},
         {"disability": "Hard of Hearing or Deaf", "name": "Directional Indicators for Subtitles","rating": -1},
         {"disability": "Hard of Hearing or Deaf", "name": "Changing Font and Size","rating": -1},
@@ -24,7 +30,7 @@ export class CreateReviewComponent {
         {"disability": "Vision Impairment", "name": "Partially sighted filters", "rating": -1},
         {"disability": "Vision Impairment", "name": "Text-to-Speech", "rating": -1},
         {"disability": "Motor Disability", "name": "Remapping controls", "rating": -1},
-        {"disability": "Motor Disability", "name": "One- handed controls","rating": -1},
+        {"disability": "Motor Disability", "name": "One-handed controls","rating": -1},
         {"disability": "Motor Disability", "name": "Alternative Grip Solutions", "rating": -1},
         {"disability": "Motor Disability", "name": "Adaptive Controller", "rating": -1},
         {"disability": "Motor Disability", "name": "Various game speeds","rating": -1},
@@ -35,32 +41,23 @@ export class CreateReviewComponent {
       ]
     }
 
-  // public dis = [{"name": "Hard of Hearing or Deaf", "sublabels": [ 
-  //   {"name": "Subtitles", "score": [{"name": "NA","val": -1},{ "name": "Worst","val": 1}, {"name": "Poor","val":2}, {"name": "Okay","val":3}, {"name": "Alright","val": 4}, {"name": "Good","val":5}]}, 
-  //   {"name": "Directional Indicators for subtitles", "score": [{"name": "NA","val": -1},{ "name": "Worst","val": 1}, {"name": "Poor","val":2}, {"name": "Okay","val":3}, {"name": "Alright","val": 4}, {"name": "Good","val":5}]}, 
-  //   {"name": "Changing font and size", "score": [{"name": "NA","val": -1},{ "name": "Worst","val": 1}, {"name": "Poor","val":2}, {"name": "Okay","val":3}, {"name": "Alright","val": 4}, {"name": "Good","val":5}]}
-  // ]}, 
-  //   {"name": "Vision Impairment", "sublabels": [
-  //   {"name": "Color contrasts", "score": [{"name": "NA","val": -1},{ "name": "Worst","val": 1}, {"name": "Poor","val":2}, {"name": "Okay","val":3}, {"name": "Alright","val": 4}, {"name": "Good","val":5}]}, 
-  //   {"name": "Color Blind Modes", "score": [{"name": "NA","val": -1},{ "name": "Worst","val": 1}, {"name": "Poor","val":2}, {"name": "Okay","val":3}, {"name": "Alright","val": 4}, {"name": "Good","val":5}]}, 
-  //   {"name": "Partially sighted filters", "score": [{"name": "NA","val": -1},{ "name": "Worst","val": 1}, {"name": "Poor","val":2}, {"name": "Okay","val":3}, {"name": "Alright","val": 4}, {"name": "Good","val":5}]}, 
-  //   {"name": "Text-to-Speech", "score": [{"name": "NA","val": -1},{ "name": "Worst","val": 1}, {"name": "Poor","val":2}, {"name": "Okay","val":3}, {"name": "Alright","val": 4}, {"name": "Good","val":5}]}
-  // ]}, 
-  // {"name": "Motor Disability", "sublabels": [
-  //   {"name": "Remapping controls",  "score": [{"name": "NA","val": -1},{ "name": "Worst","val": 1}, {"name": "Poor","val":2}, {"name": "Okay","val":3}, {"name": "Alright","val": 4}, {"name": "Good","val":5}]},
-  //   {"name": "One- handed controls",  "score": [{"name": "NA","val": -1},{ "name": "Worst","val": 1}, {"name": "Poor","val":2}, {"name": "Okay","val":3}, {"name": "Alright","val": 4}, {"name": "Good","val":5}]},
-  //   {"name": "Alternative Grip Solutions", "score": [{"name": "NA","val": -1},{ "name": "Worst","val": 1}, {"name": "Poor","val":2}, {"name": "Okay","val":3}, {"name": "Alright","val": 4}, {"name": "Good","val":5}]},
-  //   {"name": "Adaptive Controller",  "score": [{"name": "NA","val": -1},{ "name": "Worst","val": 1}, {"name": "Poor","val":2}, {"name": "Okay","val":3}, {"name": "Alright","val": 4}, {"name": "Good","val":5}]},
-  //   {"name": "Various game speeds",  "score": [{"name": "NA","val": -1},{ "name": "Worst","val": 1}, {"name": "Poor","val":2}, {"name": "Okay","val":3}, {"name": "Alright","val": 4}, {"name": "Good","val":5}]}
-  // ]},
-  // {"name": "Other", "sublabels": [
-  //   {"name": "Dynamic skill difficulty", "score": [{"name": "NA","val": -1},{ "name": "Worst","val": 1}, {"name": "Poor","val":2}, {"name": "Okay","val":3}, {"name": "Alright","val": 4}, {"name": "Good","val":5}]},
-  //   {"name": "Content warnings" , "score": [{"name": "NA","val": -1},{ "name": "Worst","val": 1}, {"name": "Poor","val":2}, {"name": "Okay","val":3}, {"name": "Alright","val": 4}, {"name": "Good","val":5}]},
-  //   {"name": "Skip triggering scenes", "score": [{"name": "NA","val": -1},{ "name": "Worst","val": 1}, {"name": "Poor","val":2}, {"name": "Okay","val":3}, {"name": "Alright","val": 4}, {"name": "Good","val":5}]},
-  // ]}]
- 
-  // public buttons = [{"name": "NA","val": -1},{ "name": "Worst","val": 1}, {"name": "Poor","val":2}, {"name": "Okay","val":3}, {"name": "Alright","val": 4}, {"name": "Good","val":5}]
   onNoClick(): void {
     this.dialogRef.close();
+  }
+
+  show(flip: string){
+    console.log(flip)
+    if (flip == 'hear'){
+      this.hear = !this.hear
+    }
+    if(flip == 'motor'){
+      this.motor = !this.motor
+    }
+    if (flip == 'see'){
+      this.see = !this.see
+    }
+    if(flip == 'other'){
+      this.other = !this.other
+    }
   }
 }

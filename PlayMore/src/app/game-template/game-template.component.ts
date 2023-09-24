@@ -77,11 +77,7 @@ export class GameTemplateComponent implements OnInit {
         "title" : "",
         "text" : "",
         "date_created" : "",
-        "feature_ratings" : [
-          {"disability" : "",
-          "name" : "",
-          "rating" : -1}
-        ],
+        "feature_ratings" : [],
         "username": "",
         "user_id": ""
       }
