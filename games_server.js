@@ -38,12 +38,15 @@ app.post('/v4/games/id', jsonParser, (req, res) => {
           console.log(error);
           return;
        }
-       for(let i = 0; i < data.length; i++){
-         if (data[i].id == req.body.id){
-           return data[i];
+
+       for(let i = 0; i < games_data.length; i++){
+         console.log(games_data[i].id)
+         if (games_data[i].id == req.body.id){
+            console.log("found match")
+            res.json(games_data[i]);
+            break;
          }
       }
-      return "ERROR!";
   })
 });
 

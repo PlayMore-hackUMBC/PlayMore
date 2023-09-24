@@ -39,10 +39,6 @@ export class GamesServiceService {
 
   public getGames(){
     return this.http.post(this.games_server+"/v4/games", {})
-    // .subscribe(resp => {
-    //   console.log("Got the games")
-    //   return resp
-    // })
   }
 
 

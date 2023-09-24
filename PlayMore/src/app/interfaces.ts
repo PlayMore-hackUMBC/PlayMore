@@ -68,3 +68,11 @@ export interface User {
     avatar_url : string;
     dis : Disability[];
 }
+
+export interface Scores {
+    overall : number,
+    hard_of_hearing: number,
+    vision_impairment : number,
+    motor_disability: number,
+    misc: number
+}

@@ -12,6 +12,7 @@ import { Observable, subscribeOn } from 'rxjs';
 export class GameTemplateComponent implements OnInit {
 
   public game : any  = {}
+  public score : any = {}
 
   constructor(
     private route: ActivatedRoute,
@@ -24,8 +25,8 @@ export class GameTemplateComponent implements OnInit {
     const gameIdFromRoute = Number(routeParams.get('gameId'));
   
     // Find the game that correspond with the id provided in route.
-    // this.game = 
+    console.log("calling the get game by id")
     this.gameService.getGameById(gameIdFromRoute).subscribe(resp => {this.game=resp; console.log(resp)});
-    
+    this.score = {"overall": 4, "hard_of_hearing": 4,  "vision_impairment ": 5,  "motor_disability": 4,  "misc": 3}
   }
 }
