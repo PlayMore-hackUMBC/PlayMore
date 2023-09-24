@@ -30,7 +30,7 @@
         <div *ngFor="let game of games">
           <div class="col">
                 <div class="card shadow-sm" routerLink="/games/{{game.id}}">
-                  <img class="bd-placeholder-img card-img-top" width="100%" height="225"  src="{{game.background_image}}" role="img" aria-label="Placeholder: Thumbnail" preserveAspectRatio="xMidYMid slice" focusable="false"><title>Placeholder</title> 
+                  <img class="bd-placeholder-img card-img-top" width="100%" height="225"  src="{{game.background_image}}" role="img" aria-label="Placeholder: Thumbnail" preserveAspectRatio="xMidYMid slice" focusable="false"  data-toggle="tooltip" data-placement="right" title="{{game.name}}">
 
                     <div class="card-body">
                     <p class="card-text">{{game.name}}</p>

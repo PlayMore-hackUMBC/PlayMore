@@ -25,7 +25,7 @@ export class GameTemplateComponent implements OnInit {
     public dialog: MatDialog,
     private _firestoreService : FirestoreService
     ){
-      this.score = {"overall": 4, "hard_of_hearing": 4,  "vision_impairment": 5,  "motor_disability": 4,  "misc": 3}
+      this.score = {"overall": 0, "hard_of_hearing": 0,  "vision_impairment": 0,  "motor_disability": 0,  "other_disability": 0}
       
     }
 
@@ -44,25 +44,53 @@ export class GameTemplateComponent implements OnInit {
     this._firestoreService.get_reviews_by_game(String(gameIdFromRoute)).subscribe((value : any[]) => {
       this.reviews = value;
       console.log(this.reviews)
-    })
+      let total = 0
+      let total_hard_of_hearing =0
+      let total_vision_impairment = 0
+      let total_motor_disability = 0
+      let total_other_disability =0
+      this.reviews.forEach(element => { 
+        element.feature_ratings.forEach(feat =>{
+          if(feat.rating >0){
+            this.score.overall += Number(feat.rating)
+            total += 1
+            this.score.hard_of_hearing += feat.disability=="Hard of Hearing or Deaf" ? Number(feat.rating) : 0;
+            total_hard_of_hearing += feat.disability=="Hard of Hearing or Deaf" ? 1 : 0;
+            this.score.vision_impairment += feat.disability=="Vision Impairment" ? Number(feat.rating) : 0;
+            total_vision_impairment += feat.disability=="Vision Impairment" ? 1 : 0;
+            this.score.motor_disability += feat.disability=="Motor Disability" ? Number(feat.rating) : 0;
+            total_motor_disability += feat.disability=="Motor Disability" ? 1 : 0;
+            this.score.other_disability += feat.disability=="Other Disability" ? Number(feat.rating) : 0;
+            total_other_disability += feat.disability=="Other Disability" ? 1 : 0;
+          }
+        })
+        if(total) {this.score.overall /= total}
+        if(total_hard_of_hearing) {this.score.hard_of_hearing /= total_hard_of_hearing}
+        if(total_vision_impairment) {this.score.vision_impairment /= total_vision_impairment}
+        if(total_motor_disability) {this.score.motor_disability /= total_motor_disability}
+        if(total_other_disability) {this.score.other_disability /= total_other_disability}
+      }); 
+
+      }
+    )
   }
 
 
-  openLeaveReview(gameid:number, game_name: string){
-    console.log(gameid)
+  public openLeaveReview(gameid:string, game_name: string){
+    console.log(String(gameid))
 
     const dialogRef = this.dialog.open(CreateReviewComponent, {
       width: '600px',
       data: {
         "id" : "",
-        "game_id" : gameid,
+        "game_id" : String(gameid),
         "game_name": game_name, 
         "title" : "",
         "text" : "",
         "date_created" : "",
         "feature_ratings" : [],
-        "username": "",
-        "user_id": ""
+        "username": "ntackyt",
+        "user_id": "suka"
       }
     });
 

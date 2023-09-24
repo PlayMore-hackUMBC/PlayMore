@@ -31,6 +31,11 @@ export class GamesServiceService {
     return this.http.get(this.games_server+"/"+gameId, {params: {'key': '9233de06a6c14dc5bb592fc1e68c1d27'}})
   }
 
+
+  public findGameByName(gamenameFromRoute:string){
+    return this.http.get(this.games_server, {params: {'key': '9233de06a6c14dc5bb592fc1e68c1d27', 'search': gamenameFromRoute}})
+
+  }
 }
 
 
