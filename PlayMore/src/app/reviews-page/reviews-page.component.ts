@@ -1,10 +1,8 @@
-import { Component } from '@angular/core';
-import { Observable, pipe, map } from 'rxjs';
+import { Component, OnInit } from '@angular/core';
+import { Observable, pipe, map, Subject } from 'rxjs';
 import { persistenceEnabled as _persistenceEnabled } from '../app.module';
-import { traceUntilFirst } from '@angular/fire/performance';
-import { doc, docData, Firestore } from '@angular/fire/firestore';
-import { Review } from '../interfaces';
-import { ReviewsService } from '../services/reviews.service';
+import { Disability, Review } from '../interfaces';
+import { FirestoreService } from '../services/firestore.service';
 
 
 @Component({
@@ -12,47 +10,25 @@ import { ReviewsService } from '../services/reviews.service';
   templateUrl: './reviews-page.component.html',
   styleUrls: ['./reviews-page.component.css']
 })
-export class ReviewsPageComponent {
+export class ReviewsPageComponent implements OnInit {
+  public all_reviews : Review[] = [];
+  public all_reviews_game : Review[] = [];
+  public dis : Disability[] = [];
 
-  public reviews : Review[]
+  constructor (private _firestoreService : FirestoreService) {}
 
-  constructor (_reviewsService : ReviewsService) {
-
-    this.reviews =  [{"id" : "wefnwo",
-    "game_id" : "2563",
-    "title" : "THIS WAS AWESOME",
-    "text" : "this is my really excited review that i am too tired to write",
-    "date_created" : "9/23/2023",
-    "feature_ratings" : [
-      {"disability" : "Hard of Hearing or Deaf",
-      "name" : "Subtitles",
-      "rating" : 5}, 
-      {"disability" : "Other",
-      "name": "content warning",
-      "rating" : 5}],
-    "username": "ntackyt",
-    "user_id": "suka"},
-    {"id" : "wefnwo",
-    "game_id" : "2563",
-    "title" : "THIS WAS AWESOME",
-    "text" : "this is my really excited review that i am too tired to write",
-    "date_created" : "9/23/2023",
-    "feature_ratings" : [
-      {"disability" : "Hard of Hearing or Deaf",
-      "name" : "Subtitles",
-      "rating" : 5}, 
-      {"disability" : "Other",
-      "name": "content warning",
-      "rating" : 5}],
-    "username": "ntackyt",
-    "user_id": "suka"}]
-
-    _reviewsService.get_reviews().subscribe((value : any[]) => {
-      console.log(value);
-      console.log(typeof(value));
+  ngOnInit(): void {
+    this._firestoreService.get_reviews().subscribe((value : any[]) => {
+      this.all_reviews = value;
     })
-    
 
+    this._firestoreService.get_reviews_by_game("ZZZ123").subscribe((value : any[]) => {
+      this.all_reviews_game = value;
+    })
+
+    this._firestoreService.get_dis().subscribe((value : any[]) => {
+      this.dis = value;
+    })
   }
-
+    
 }
