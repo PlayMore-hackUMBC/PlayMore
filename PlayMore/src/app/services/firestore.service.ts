@@ -17,11 +17,11 @@ export class FirestoreService {
     return collectionData(reviews) as Observable<Review[]>;
   }
 
-  get_reviews_by_game(game_name : string)  : Observable<Review[]> {
+  get_reviews_by_game(game_id : string)  : Observable<Review[]> {
     const reviews = collectionData(
     query(
       collection(this.firestore, "reviews"),
-      where("game_name", '==', game_name)
+      where("game_id", '==', game_id)
     )
   );
 

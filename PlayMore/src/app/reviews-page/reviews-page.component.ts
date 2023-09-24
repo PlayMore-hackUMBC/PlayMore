@@ -14,19 +14,7 @@ export class ReviewsPageComponent implements OnInit {
   public all_reviews : Review[] = [];
   public all_reviews_game : Review[] = [];
   public dis : Disability[] = [];
-  public review_to_add : Review = {
-    id: "",
-    game_id: "Bioshock",
-    title : "Great",
-    text : "Great!",
-    date_created : "9/24/2023",
-    username: "test_user",
-    user_id: "1234",
-    feature_ratings: [
-      {"disability": "Motor Disability", "name": "Remappable controls", "rating": 3},
-      {"disability": "Hard of Hearing or Deaf", "name": "Directional Indicators for Subtitles","rating": 4}
-    ]
-  }
+ 
 
   constructor (private _firestoreService : FirestoreService) {}
 

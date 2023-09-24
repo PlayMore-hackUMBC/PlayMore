@@ -57,11 +57,14 @@
       <div class="row row-cols-1 row-cols-sm-2 g-3">
 
         <div *ngFor="let review of reviews">
-                <div class="card shadow-sm mt-3 ">
+                <div class="card shadow-sm mt-3 "routerLink="/games/{{review.game_id}}">
                     <div class="card-body">
                         <div class="row justify-content-between">
+                            <div class="col-sm-8 text-left h4">
+                                {{review.game_name}}
+                            </div>
                             <div class="col-sm-8 text-left">
-                                {{review.title}}
+                               {{review.title}}
                             </div>
                             <div class="col-sm-4 text-end text-muted">
                                 {{review.date_created}}

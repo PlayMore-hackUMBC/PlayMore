@@ -20,7 +20,6 @@ export class CreateReviewComponent {
     public dialogRef: MatDialogRef<CreateReviewComponent>,
     @Inject(MAT_DIALOG_DATA) public data: Review) {
       data.date_created = String(new Date());
-      data.game_id = String(new Date());
       data.feature_ratings= [
         {"disability": "Hard of Hearing or Deaf", "name": "Subtitles", "rating": -1},
         {"disability": "Hard of Hearing or Deaf", "name": "Directional Indicators for Subtitles","rating": -1},
