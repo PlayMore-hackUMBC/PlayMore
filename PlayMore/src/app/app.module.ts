@@ -10,7 +10,8 @@ import { LoginPageComponent } from './login-page/login-page.component';
 import { CreateReviewComponent } from './create-review/create-review.component';
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
-import { environment } from '../environments/environment';
+import { HttpClientModule } from '@angular/common/http';
+import { GameTemplateComponent } from './game-template/game-template.component';import { environment } from '../environments/environment';
 
 /* Services imports */
 import { FirestoreService } from './services/firestore.service';
@@ -41,13 +42,15 @@ export const persistenceEnabled = new Promise<boolean>(resolve => {
     GamesPageComponent,
     ReviewsPageComponent,
     LoginPageComponent,
-    CreateReviewComponent
+    CreateReviewComponent,
+    GameTemplateComponent
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
     NgbModule,
     BrowserAnimationsModule,
+    HttpClientModule,
     /* Firebase imports */
     provideRemoteConfig(() => getRemoteConfig()),
     provideAnalytics(() => getAnalytics()),
