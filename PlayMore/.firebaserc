@@ -1,0 +1,14 @@
+{
+  "targets": {
+    "play-more-9e18b": {
+      "hosting": {
+        "PlayMore": [
+          "play-more-9e18b"
+        ]
+      }
+    }
+  },
+  "projects": {
+    "default": "play-more-9e18b"
+  }
+}
