@@ -16,15 +16,15 @@ export class ReviewsPageComponent implements OnInit {
   public dis : Disability[] = [];
   public review_to_add : Review = {
     id: "",
-    game_id: "Portal",
-    title : "Okay...",
-    text : "This game is okay. I wanted better options for increasing the font size of the subtitles",
+    game_id: "Bioshock",
+    title : "Great",
+    text : "Great!",
     date_created : "9/24/2023",
     username: "test_user",
     user_id: "1234",
     feature_ratings: [
-      {"disability": "Hard of Hearing or Deaf", "name": "Subtitles", "rating": -1},
-      {"disability": "Hard of Hearing or Deaf", "name": "Directional Indicators for Subtitles","rating": -1}
+      {"disability": "Motor Disability", "name": "Remappable controls", "rating": 3},
+      {"disability": "Hard of Hearing or Deaf", "name": "Directional Indicators for Subtitles","rating": 4}
     ]
   }
 
@@ -35,16 +35,18 @@ export class ReviewsPageComponent implements OnInit {
       this.all_reviews = value;
     })
 
-    /*this._firestoreService.get_reviews_by_game("ZZZ123").subscribe((value : any[]) => {
+    this._firestoreService.get_reviews_by_game("Bioshock").subscribe((value : any[]) => {
       this.all_reviews_game = value;
-    })*/
+    })
 
     this._firestoreService.get_dis().subscribe((value : any[]) => {
       this.dis = value;
     })
 
-    /*this._firestoreService.add_review(this.reviewToAdd);*/
-    
+   
+   /* Sample add:
+    this._firestoreService.add_review(this.review_to_add);
+   */ 
     
   }
     
