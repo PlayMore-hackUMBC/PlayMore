@@ -41,7 +41,7 @@ export interface Review {
     title : string;
     text : string;
     date_created : string;
-    feature_ratings? : Feature_Rating[];
+    feature_ratings : Feature_Rating[];
     username: string;
     user_id: string;
 }

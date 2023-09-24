@@ -16,11 +16,11 @@ export class FirestoreService {
     return this.concatReviews(collectionData(reviews));
   }
 
-  get_reviews_by_game(game_id : string)  {
+  get_reviews_by_game(game_name : string)  {
     const reviews = collectionData(
     query(
       collection(this.firestore, "reviews"),
-      where("game_id", '==', game_id)
+      where("game_name", '==', game_name)
     )
   );
 
@@ -38,8 +38,10 @@ export class FirestoreService {
 
   concatReviews(cData : Observable<any>) {
     return cData.pipe(
-      switchMap((restaurants: any[]) => { 
-        const res = restaurants.map((r: any) => { 
+      switchMap((reviews: any[]) => { 
+        console.log("reviews in swithcMap", reviews);
+        const res = reviews.map((r: any) => { 
+          console.log("r", r);
           return collectionData(collection(this.firestore, `reviews/${r.id}/feature_ratings`))
             .pipe(
               map(feature_ratings => Object.assign(r, {feature_ratings}))

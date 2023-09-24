@@ -14,14 +14,18 @@ export class ReviewsPageComponent implements OnInit {
   public all_reviews : Review[] = [];
   public all_reviews_game : Review[] = [];
   public dis : Disability[] = [];
-  public reviewToAdd : Review = {
+  public review_to_add : Review = {
     id: "",
-    game_id : "ZZZ123",
+    game_id: "Portal",
     title : "Okay...",
     text : "This game is okay. I wanted better options for increasing the font size of the subtitles",
     date_created : "9/24/2023",
     username: "test_user",
-    user_id: "1234"
+    user_id: "1234",
+    feature_ratings: [
+      {"disability": "Hard of Hearing or Deaf", "name": "Subtitles", "rating": -1},
+      {"disability": "Hard of Hearing or Deaf", "name": "Directional Indicators for Subtitles","rating": -1}
+    ]
   }
 
   constructor (private _firestoreService : FirestoreService) {}
@@ -31,9 +35,9 @@ export class ReviewsPageComponent implements OnInit {
       this.all_reviews = value;
     })
 
-    this._firestoreService.get_reviews_by_game("ZZZ123").subscribe((value : any[]) => {
+    /*this._firestoreService.get_reviews_by_game("ZZZ123").subscribe((value : any[]) => {
       this.all_reviews_game = value;
-    })
+    })*/
 
     this._firestoreService.get_dis().subscribe((value : any[]) => {
       this.dis = value;

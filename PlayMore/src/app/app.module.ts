@@ -76,10 +76,10 @@ export const persistenceEnabled = new Promise<boolean>(resolve => {
       if (environment.useEmulators) {
           connectFirestoreEmulator(firestore, 'localhost', 8080);
       }
-      enableMultiTabIndexedDbPersistence(firestore).then(
+      /*enableMultiTabIndexedDbPersistence(firestore).then(
         () => resolvePersistenceEnabled(true),
         () => resolvePersistenceEnabled(false)
-      );
+      );*/
       return firestore;
     }),
     provideDatabase(() => {
