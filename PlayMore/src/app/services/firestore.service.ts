@@ -2,7 +2,7 @@ import { Injectable } from '@angular/core';
 import { Observable, pipe, map, switchMap, concatMap, combineLatest, combineAll, concat, Subject, combineLatestAll, concatAll } from 'rxjs';
 import { persistenceEnabled as _persistenceEnabled } from '../app.module';
 import { traceUntilFirst } from '@angular/fire/performance';
-import { collection, collectionData, doc, docData, Firestore, CollectionReference, query, where, getDocs } from '@angular/fire/firestore';
+import { collection, collectionData, doc, docData, addDoc, setDoc, Firestore, CollectionReference, query, where, getDocs } from '@angular/fire/firestore';
 import { Review, Feature_Rating, Disability } from '../interfaces';
 @Injectable({
   providedIn: 'root'
@@ -13,33 +13,27 @@ export class FirestoreService {
 
   get_reviews(): Observable<Review[]> {
     const reviews = collection(this.firestore, "reviews");
-    return this.concatReviews(collectionData(reviews));
+    //return this.concatReviews(collectionData(reviews));
+    return collectionData(reviews) as Observable<Review[]>;
   }
 
-  get_reviews_by_game(game_id : string)  {
+  get_reviews_by_game(game_name : string)  : Observable<Review[]> {
     const reviews = collectionData(
     query(
       collection(this.firestore, "reviews"),
-      where("game_id", '==', game_id)
+      where("game_name", '==', game_name)
     )
   );
 
-  return this.concatReviews(reviews);
+  return reviews as Observable<Review[]>;
 
-  /*const reviews = collection(this.firestore, 'reviews');
-  const q = query(reviews,
-    where('game_id', '==' , game_id) 
-  );
-
-  const querySnapshot = getDocs(q);
-
-  console.log(querySnapshot);*/
  }
 
   concatReviews(cData : Observable<any>) {
     return cData.pipe(
-      switchMap((restaurants: any[]) => { 
-        const res = restaurants.map((r: any) => { 
+      switchMap((reviews: any[]) => { 
+        console.log("reviews in swithcMap", reviews);
+        const res = reviews.map((r: any) => { 
           return collectionData(collection(this.firestore, `reviews/${r.id}/feature_ratings`))
             .pipe(
               map(feature_ratings => Object.assign(r, {feature_ratings}))
@@ -53,5 +47,13 @@ export class FirestoreService {
   get_dis() : Observable<Disability[]> {
     const disabilities = collection(this.firestore, "disabilities");
     return collectionData(disabilities) as Observable<Disability[]>;
+  }
+
+  async add_review(review : Review) {
+    const ref = collection(this.firestore, "reviews");
+    const docRef = await addDoc(ref, {});
+    console.log("created id", docRef.id);
+    review.id = docRef.id;
+    await setDoc(doc(this.firestore, "reviews", docRef.id), review);
   }
 }

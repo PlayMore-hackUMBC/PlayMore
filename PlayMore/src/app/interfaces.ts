@@ -36,7 +36,7 @@ export interface Game_Service{
 }
 
 export interface Review {
-    id : string;
+    id? : string;
     game_id : string;
     title : string;
     text : string;
