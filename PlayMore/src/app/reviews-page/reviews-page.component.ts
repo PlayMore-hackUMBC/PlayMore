@@ -4,6 +4,7 @@ import { persistenceEnabled as _persistenceEnabled } from '../app.module';
 import { Disability, Feature_Rating, Review } from '../interfaces';
 import { FirestoreService } from '../services/firestore.service';
 
+
 @Component({
   selector: 'app-reviews-page',
   templateUrl: './reviews-page.component.html',

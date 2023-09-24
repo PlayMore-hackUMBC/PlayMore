@@ -10,7 +10,7 @@
                     </div>
                     <div class="mt-1 mb-1 spec-1"><span>100% cotton</span><span class="dot"></span><span>Light weight</span><span class="dot"></span><span>Best finish<br></span></div>
                     <div class="mt-1 mb-1 spec-1"><span>Unique design</span><span class="dot"></span><span>For men</span><span class="dot"></span><span>Casual<br></span></div> -->
-                    <p class="text-justify text-wrap para mb-0">{{game.summary}}<br><br></p>
+                    <p class="text-justify text-wrap para mb-0">{{game.description_raw}}<br><br></p>
                 </div>
                 <div class="align-items-center align-content-center col-md-3 border-left mt-1">
                     <div class="d-flex flex-row align-items-center justify-content-between">
@@ -53,19 +53,92 @@
                             {{this.score.misc}}
                         </div>
                     </div>
-                    <div class="d-flex flex-column mt-4"><button class="btn btn-outline-primary btn-sm" type="button">Leave Review</button>
+                    <div class="d-flex flex-column mt-4"><button class="btn btn-outline-primary btn-sm" type="button" (click)="openLeaveReview(game.id)">Leave Review</button>
                 </div>
             </div>
         </div>  
     </div>
 </div>
-
-<div class="container-fluid">
-
-    <div>
-        
-    </div>
-
-
+<div class="album py-5 bg-light">
+    <div class="container mt-5 mb-5" >
+      <div class="row row-cols-1 row-cols-sm-2 g-3">
+    <div *ngFor="let review of reviews">
+            <div class="card shadow-sm mt-3">
+                <div class="card-body">
+                    <div class="row justify-content-between">
+                        <div class="col-sm-8 text-left">
+                            {{review.title}}
+                        </div>
+                        <div class="col-sm-4 text-end text-muted">
+                            {{review.date_created}}
+                        </div>
+                    </div>
+                    <div class="row-flex text-muted">
+                        {{review.username}}
+                    </div>
+                    <div class="container">
+                        <div class="row mt-3 mb-3 justify-content-between">
+                            <div class="col-sm-8">
+                                {{review.text}}
+                            </div>
+                            <div class="col-sm-4">
+                                <div *ngFor="let feat of review.feature_ratings">
+                                    <div class="container align-content-left">
+                                        <div class="row justify-content-left">
+                                            <div class="col-sm-8 text-left">
+                                                {{feat.name}}
+                                            </div>
+                                            <div class="col-sm-4 text-end">
+                                                {{feat.rating}}
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                </div>
+            </div>  
+        </div>
+    </div>  
 </div>
-            
+</div>
+</div>
+</div>
+<!-- 
+<button type="button" class="btn btn-primary" data-toggle="modal" data-target="#exampleModal" data-whatever="@mdo">Open modal for @mdo</button>
+<button type="button" class="btn btn-primary" data-toggle="modal" data-target="#exampleModal" data-whatever="@fat">Open modal for @fat</button>
+<button type="button" class="btn btn-primary" data-toggle="modal" data-target="#exampleModal" data-whatever="@getbootstrap">Open modal for @getbootstrap</button>
+
+<div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="exampleModalLabel">New message</h5>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body">
+        <form>
+          <div class="form-group">
+            <label for="recipient-name" class="col-form-label">Recipient:</label>
+            <input type="text" class="form-control" id="recipient-name">
+          </div>
+          <div class="form-group">
+            <label for="message-text" class="col-form-label">Message:</label>
+            <textarea class="form-control" id="message-text"></textarea>
+          </div>
+        </form>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+        <button type="button" class="btn btn-primary">Send message</button>
+      </div>
+    </div>
+  </div>
+</div> -->
+
+
+<!-- <modal id="modal-1">
+    <app-create-review></app-create-review>
+</modal> -->

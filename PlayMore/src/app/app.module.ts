@@ -11,7 +11,12 @@ import { CreateReviewComponent } from './create-review/create-review.component';
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { HttpClientModule } from '@angular/common/http';
-import { GameTemplateComponent } from './game-template/game-template.component';import { environment } from '../environments/environment';
+import { GameTemplateComponent } from './game-template/game-template.component';
+import { environment } from '../environments/environment';
+import { MatDialogModule } from '@angular/material/dialog';
+import {MatFormFieldModule} from '@angular/material/form-field';
+import { FormsModule } from '@angular/forms';
+
 
 /* Services imports */
 import { FirestoreService } from './services/firestore.service';
@@ -51,6 +56,9 @@ export const persistenceEnabled = new Promise<boolean>(resolve => {
     NgbModule,
     BrowserAnimationsModule,
     HttpClientModule,
+    MatDialogModule,
+    MatFormFieldModule,
+    FormsModule,
     /* Firebase imports */
     provideRemoteConfig(() => getRemoteConfig()),
     provideAnalytics(() => getAnalytics()),
