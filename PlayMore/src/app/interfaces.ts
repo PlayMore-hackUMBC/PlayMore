@@ -13,13 +13,14 @@ export interface Review {
     title : string;
     text : string;
     date_created : string;
-    feature_ratings : any;
+    feature_ratings : Feature_Rating[];
+    username: string;
+    user_id: string;
 }
 
 export interface Feature_Rating {
-    id : string;
-    dis_id : string;
-    review_id : string;
+    disability : string;
+    name : string;
     rating : number;
 }
 

@@ -13,7 +13,7 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { environment } from '../environments/environment';
 
 /* Services imports */
-import { ReviewsService } from './services/reviews.service';
+import { FirestoreService } from './services/firestore.service';
 
 /* Firebase imports */
 import { provideFirebaseApp, initializeApp } from '@angular/fire/app';
@@ -25,6 +25,7 @@ import { getRemoteConfig, provideRemoteConfig } from '@angular/fire/remote-confi
 import { getAnalytics, provideAnalytics, ScreenTrackingService, UserTrackingService } from '@angular/fire/analytics';
 import { getMessaging, provideMessaging } from '@angular/fire/messaging';
 import { provideAuth, connectAuthEmulator, getAuth } from '@angular/fire/auth';
+
 
 let resolvePersistenceEnabled: (enabled: boolean) => void;
 
@@ -93,7 +94,7 @@ export const persistenceEnabled = new Promise<boolean>(resolve => {
     }),
   ],
   providers: [
-    ReviewsService
+    FirestoreService
   ],
   bootstrap: [AppComponent]
 })
