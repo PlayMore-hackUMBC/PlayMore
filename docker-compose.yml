@@ -1,0 +1,7 @@
+---
+services:
+  playmore:
+    build: ./PlayMore
+    ports:
+      - "4200:4200"
+    
