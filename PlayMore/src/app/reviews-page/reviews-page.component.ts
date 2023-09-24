@@ -6,6 +6,7 @@ import { doc, docData, Firestore } from '@angular/fire/firestore';
 import { Review } from '../interfaces';
 import { ReviewsService } from '../services/reviews.service';
 
+
 @Component({
   selector: 'app-reviews-page',
   templateUrl: './reviews-page.component.html',
@@ -13,8 +14,42 @@ import { ReviewsService } from '../services/reviews.service';
 })
 export class ReviewsPageComponent {
 
+  public reviews : Review[]
 
   constructor (_reviewsService : ReviewsService) {
+
+    this.reviews =  [{"id" : "wefnwo",
+    "game_id" : "2563",
+    "title" : "THIS WAS AWESOME",
+    "text" : "this is my really excited review that i am too tired to write",
+    "date_created" : "9/23/2023",
+    "feature_ratings" : [
+      {"id" : "jdfkdsb",
+      "dis_id" : "HoH",
+      "name" : "Subtitles",
+      "rating" : 5}, 
+      {"id" : "sdbfiwbf",
+      "dis_id" : "Misc",
+      "name": "content warning",
+      "rating" : 5}],
+    "username": "ntackyt",
+    "user_id": "suka"},
+    {"id" : "wefnwo",
+    "game_id" : "2563",
+    "title" : "THIS WAS AWESOME",
+    "text" : "this is my really excited review that i am too tired to write",
+    "date_created" : "9/23/2023",
+    "feature_ratings" : [
+      {"id" : "jdfkdsb",
+      "dis_id" : "HoH",
+      "name" : "Subtitles",
+      "rating" : 5}, 
+      {"id" : "sdbfiwbf",
+      "dis_id" : "Misc",
+      "name": "content warning",
+      "rating" : 5}],
+    "username": "ntackyt",
+    "user_id": "suka"}]
 
     _reviewsService.get_reviews().subscribe((value : any[]) => {
       console.log(value);

@@ -42,11 +42,14 @@ export interface Review {
     text : string;
     date_created : string;
     feature_ratings : Feature_Rating[];
+    username: string;
+    user_id: string;
 }
 
 export interface Feature_Rating {
     id : string;
     dis_id : string;
+    name : string;
     rating : number;
 }
 
