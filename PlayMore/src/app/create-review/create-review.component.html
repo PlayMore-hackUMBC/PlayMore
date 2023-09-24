@@ -1,1 +1,347 @@
-<p>create-review works!</p>
+<h1 mat-dialog-title>Write a Review</h1>
+<div mat-dialog-content>
+  <!-- <mat-form-field> -->
+    
+    <form class="container mb-3">
+        <div class="row">
+            <div class="input-group mb-3" >
+                <!-- <label for="title">Title</label> -->
+                <input id="title" name="title" type="text" class="form-control" placeholder="Title" aria-label="Title" aria-describedby="basic-addon1" [(ngModel)]="data.title">
+            </div>
+            
+            <div class="input-group mb-3">
+                <textarea type="textbox" name="Comments" class="form-control" placeholder="Comments" aria-label="Comments" aria-describedby="basic-addon1" [(ngModel)]="data.text"></textarea>
+            </div> 
+        </div>  
+        <label>Ratings</label>
+        
+            <label>Hard of Hearing or Deaf</label>
+            <div class="container">
+
+                <label>Subtitles</label>
+                <div class="col mt-2" id="Subtitles">
+                        <div class="form-check form-check-inline">
+                            <input class="form-check-input" type="radio" id="1" name="Subtitles" value="-1" [(ngModel)]="data.feature_ratings[0].rating">
+                            <label class="form-check-label" for="1">NA</label>
+                        </div>
+                        <div class="form-check form-check-inline">
+                            <input class="form-check-input" type="radio" id="2" name="Subtitles" value="0" [(ngModel)]="data.feature_ratings[0].rating">
+                            <label class="form-check-label" for="2">Worst</label>
+                        </div>
+                        <div class="form-check form-check-inline">
+                            <input class="form-check-input" type="radio" id="3" name="Subtitles" value="1" [(ngModel)]="data.feature_ratings[0].rating">
+                            <label class="form-check-label" for="3">Bad</label>
+                        </div>
+                        <div class="form-check form-check-inline">
+                            <input class="form-check-input" type="radio" id="4" name="Subtitles" value="2" [(ngModel)]="data.feature_ratings[0].rating">
+                            <label class="form-check-label" for="4">Okay</label>
+                        </div>
+                        <div class="form-check form-check-inline">
+                            <input class="form-check-input" type="radio" id="5" name="Subtitles" value="3" [(ngModel)]="data.feature_ratings[0].rating">
+                            <label class="form-check-label" for="5">Good</label>
+                        </div>
+                        <div class="form-check form-check-inline">
+                            <input class="form-check-input" type="radio" id="6" name="Subtitles" value="4" [(ngModel)]="data.feature_ratings[0].rating">
+                            <label class="form-check-label" for="6">Best</label>
+                        </div>
+                </div>
+
+                <label>Directional Indicators for Subtitles</label>
+                <div class="col mt-2" id="Directional Indicators for Subtitles">
+                    <div class="form-check form-check-inline">
+                        <input class="form-check-input" type="radio" id="7" name="Directional Indicators for Subtitles" value="-1" [(ngModel)]="data.feature_ratings[1].rating">
+                        <label class="form-check-label" for="7">NA</label>
+                    </div>
+                    <div class="form-check form-check-inline">
+                        <input class="form-check-input" type="radio" id="8" name="Directional Indicators for Subtitles" value="0" [(ngModel)]="data.feature_ratings[1].rating">
+                        <label class="form-check-label" for="8">Worst</label>
+                    </div>
+                    <div class="form-check form-check-inline">
+                        <input class="form-check-input" type="radio" id="9" name="Directional Indicators for Subtitles" value="1" [(ngModel)]="data.feature_ratings[1].rating">
+                        <label class="form-check-label" for="9">Bad</label>
+                    </div>
+                    <div class="form-check form-check-inline">
+                        <input class="form-check-input" type="radio" id="10" name="Directional Indicators for Subtitles" value="2" [(ngModel)]="data.feature_ratings[1].rating">
+                        <label class="form-check-label" for="10">Okay</label>
+                    </div>
+                    <div class="form-check form-check-inline">
+                        <input class="form-check-input" type="radio" id="11" name="Directional Indicators for Subtitles" value="3" [(ngModel)]="data.feature_ratings[1].rating">
+                        <label class="form-check-label" for="11">Good</label>
+                    </div>
+                    <div class="form-check form-check-inline">
+                        <input class="form-check-input" type="radio" id="12" name="Directional Indicators for Subtitles" value="4" [(ngModel)]="data.feature_ratings[1].rating">
+                        <label class="form-check-label" for="12">Best</label>
+                    </div>
+                </div>
+
+                <label>Changing font and size</label>
+                <div class="col mt-2" id="Changing Font and Size">
+                    <div class="form-check form-check-inline">
+                        <input class="form-check-input" type="radio" id="13" name="Changing Font and Size" value="-1" [(ngModel)]="data.feature_ratings[2].rating">
+                        <label class="form-check-label" for="13">NA</label>
+                    </div>
+                    <div class="form-check form-check-inline">
+                        <input class="form-check-input" type="radio" id="13" name="Changing Font and Size" value="0" [(ngModel)]="data.feature_ratings[2].rating">
+                        <label class="form-check-label" for="13">Worst</label>
+                    </div>
+                    <div class="form-check form-check-inline">
+                        <input class="form-check-input" type="radio" id="14" name="Changing Font and Size" value="1" [(ngModel)]="data.feature_ratings[2].rating">
+                        <label class="form-check-label" for="14">Bad</label>
+                    </div>
+                    <div class="form-check form-check-inline">
+                        <input class="form-check-input" type="radio" id="15" name="Changing Font and Size" value="2" [(ngModel)]="data.feature_ratings[2].rating">
+                        <label class="form-check-label" for="15">Okay</label>
+                    </div>
+                    <div class="form-check form-check-inline">
+                        <input class="form-check-input" type="radio" id="16" name="Changing Font and Size" value="3" [(ngModel)]="data.feature_ratings[2].rating">
+                        <label class="form-check-label" for="16">Good</label>
+                    </div>
+                    <div class="form-check form-check-inline">
+                        <input class="form-check-input" type="radio" id="17" name="Changing Font and Size" value="4" [(ngModel)]="data.feature_ratings[2].rating">
+                        <label class="form-check-label" for="17">Best</label>
+                    </div>
+                </div>
+            </div>
+
+            <label>Vision Impairment</label>
+            <div class="container">
+
+                <label>Color Contrasts</label>
+                <div class="col mt-2" id="Color contrasts">
+                    <div class="form-check form-check-inline">
+                        <input class="form-check-input" type="radio" id="18" name="Color contrasts" value="-1" [(ngModel)]="data.feature_ratings[3].rating">
+                        <label class="form-check-label" for="18">NA</label>
+                    </div>
+                    <div class="form-check form-check-inline">
+                        <input class="form-check-input" type="radio" id="19" name="Color contrasts" value="0" [(ngModel)]="data.feature_ratings[3].rating">
+                        <label class="form-check-label" for="19">Worst</label>
+                    </div>
+                    <div class="form-check form-check-inline">
+                        <input class="form-check-input" type="radio" id="20" name="Color contrasts" value="1" [(ngModel)]="data.feature_ratings[3].rating">
+                        <label class="form-check-label" for="20">Bad</label>
+                    </div>
+                    <div class="form-check form-check-inline">
+                        <input class="form-check-input" type="radio" id="21" name="Color contrasts" value="2" [(ngModel)]="data.feature_ratings[3].rating">
+                        <label class="form-check-label" for="21">Okay</label>
+                    </div>
+                    <div class="form-check form-check-inline">
+                        <input class="form-check-input" type="radio" id="22" name="Color contrasts" value="3" [(ngModel)]="data.feature_ratings[3].rating">
+                        <label class="form-check-label" for="22">Good</label>
+                    </div>
+                    <div class="form-check form-check-inline">
+                        <input class="form-check-input" type="radio" id="23" name="Color contrasts" value="4" [(ngModel)]="data.feature_ratings[3].rating">
+                        <label class="form-check-label" for="23">Best</label>
+                    </div>
+                </div>
+            
+                <label>Color Blind Modes</label>
+                <div class="col mt-2" id="Color Blind Modes">
+                    <div class="form-check form-check-inline">
+                        <input class="form-check-input" type="radio" id="24" name="Color Blind Modes" value="-1" [(ngModel)]="data.feature_ratings[4].rating">
+                        <label class="form-check-label" for="24">NA</label>
+                    </div>
+                    <div class="form-check form-check-inline">
+                        <input class="form-check-input" type="radio" id="25" name="Color Blind Modes" value="0" [(ngModel)]="data.feature_ratings[4].rating">
+                        <label class="form-check-label" for="25">Worst</label>
+                    </div>
+                    <div class="form-check form-check-inline">
+                        <input class="form-check-input" type="radio" id="26" name="Color Blind Modes" value="1" [(ngModel)]="data.feature_ratings[4].rating">
+                        <label class="form-check-label" for="26">Bad</label>
+                    </div>
+                    <div class="form-check form-check-inline">
+                        <input class="form-check-input" type="radio" id="27" name="Color Blind Modes" value="2" [(ngModel)]="data.feature_ratings[4].rating">
+                        <label class="form-check-label" for="27">Okay</label>
+                    </div>
+                    <div class="form-check form-check-inline">
+                        <input class="form-check-input" type="radio" id="28" name="Color Blind Modes" value="3" [(ngModel)]="data.feature_ratings[4].rating">
+                        <label class="form-check-label" for="28">Good</label>
+                    </div>
+                    <div class="form-check form-check-inline">
+                        <input class="form-check-input" type="radio" id="29" name="Color Blind Modes" value="4" [(ngModel)]="data.feature_ratings[4].rating">
+                        <label class="form-check-label" for="29">Best</label>
+                    </div>
+                </div>
+
+                <label>Partially sighted filters</label>
+                <div class="col mt-2" id="Partially sighted filters">
+                    <div class="form-check form-check-inline">
+                        <input class="form-check-input" type="radio" id="30" name="Partially sighted filters" value="-1" [(ngModel)]="data.feature_ratings[5].rating">
+                        <label class="form-check-label" for="30">NA</label>
+                    </div>
+                    <div class="form-check form-check-inline">
+                        <input class="form-check-input" type="radio" id="31" name="Partially sighted filters" value="0" [(ngModel)]="data.feature_ratings[5].rating">
+                        <label class="form-check-label" for="31">Worst</label>
+                    </div>
+                    <div class="form-check form-check-inline">
+                        <input class="form-check-input" type="radio" id="32" name="Partially sighted filters" value="1" [(ngModel)]="data.feature_ratings[5].rating">
+                        <label class="form-check-label" for="32">Bad</label>
+                    </div>
+                    <div class="form-check form-check-inline">
+                        <input class="form-check-input" type="radio" id="33" name="Partially sighted filters" value="2" [(ngModel)]="data.feature_ratings[5].rating">
+                        <label class="form-check-label" for="33">Okay</label>
+                    </div>
+                    <div class="form-check form-check-inline">
+                        <input class="form-check-input" type="radio" id="34" name="Partially sighted filters" value="3" [(ngModel)]="data.feature_ratings[5].rating">
+                        <label class="form-check-label" for="34">Good</label>
+                    </div>
+                    <div class="form-check form-check-inline">
+                        <input class="form-check-input" type="radio" id="35" name="Partially sighted filters" value="4" [(ngModel)]="data.feature_ratings[5].rating">
+                        <label class="form-check-label" for="35">Best</label>
+                    </div>
+                </div>
+
+                <label>Text-to-Speech</label>
+                <div class="col mt-2" id="Text-to-Speech">
+                    <div class="form-check form-check-inline">
+                        <input class="form-check-input" type="radio" id="36" name="Text-to-Speech" value="-1" [(ngModel)]="data.feature_ratings[6].rating">
+                        <label class="form-check-label" for="36">NA</label>
+                    </div>
+                    <div class="form-check form-check-inline">
+                        <input class="form-check-input" type="radio" id="37" name="Text-to-Speech" value="0" [(ngModel)]="data.feature_ratings[6].rating">
+                        <label class="form-check-label" for="37">Worst</label>
+                    </div>
+                    <div class="form-check form-check-inline">
+                        <input class="form-check-input" type="radio" id="38" name="Text-to-Speech" value="1" [(ngModel)]="data.feature_ratings[6].rating">
+                        <label class="form-check-label" for="38">Bad</label>
+                    </div>
+                    <div class="form-check form-check-inline">
+                        <input class="form-check-input" type="radio" id="39" name="Text-to-Speech" value="2" [(ngModel)]="data.feature_ratings[6].rating">
+                        <label class="form-check-label" for="39">Okay</label>
+                    </div>
+                    <div class="form-check form-check-inline">
+                        <input class="form-check-input" type="radio" id="40" name="Text-to-Speech" value="3" [(ngModel)]="data.feature_ratings[6].rating">
+                        <label class="form-check-label" for="40">Good</label>
+                    </div>
+                    <div class="form-check form-check-inline">
+                        <input class="form-check-input" type="radio" id="41" name="Text-to-Speech" value="4" [(ngModel)]="data.feature_ratings[6].rating">
+                        <label class="form-check-label" for="41">Best</label>
+                    </div>
+                </div>
+            
+            </div>
+
+
+            <label>Motor Disability"</label>
+            <div class="container">
+                <label>Remapping controls</label>
+                <div class="col mt-2" id="Remapping controls">
+                    <div class="form-check form-check-inline">
+                        <input class="form-check-input" type="radio" id="42" name="Remapping controls" value="-1" [(ngModel)]="data.feature_ratings[7].rating">
+                        <label class="form-check-label" for="42">NA</label>
+                    </div>
+                    <div class="form-check form-check-inline">
+                        <input class="form-check-input" type="radio" id="43" name="Remapping controls" value="0" [(ngModel)]="data.feature_ratings[7].rating">
+                        <label class="form-check-label" for="43">Worst</label>
+                    </div>
+                    <div class="form-check form-check-inline">
+                        <input class="form-check-input" type="radio" id="44" name="Remapping controls" value="1" [(ngModel)]="data.feature_ratings[7].rating">
+                        <label class="form-check-label" for="44">Bad</label>
+                    </div>
+                    <div class="form-check form-check-inline">
+                        <input class="form-check-input" type="radio" id="45" name="Remapping controls" value="2" [(ngModel)]="data.feature_ratings[7].rating">
+                        <label class="form-check-label" for="45">Okay</label>
+                    </div>
+                    <div class="form-check form-check-inline">
+                        <input class="form-check-input" type="radio" id="46" name="Remapping controls" value="3" [(ngModel)]="data.feature_ratings[7].rating">
+                        <label class="form-check-label" for="46">Good</label>
+                    </div>
+                    <div class="form-check form-check-inline">
+                        <input class="form-check-input" type="radio" id="47" name="Remapping controls" value="4" [(ngModel)]="data.feature_ratings[7].rating">
+                        <label class="form-check-label" for="47">Best</label>
+                    </div>
+                </div>
+
+                <label>One-handed controls</label>
+                <div class="col mt-2" id="One-handed controls">
+                    <div class="form-check form-check-inline">
+                        <input class="form-check-input" type="radio" id="48" name="One-handed controls" value="-1" [(ngModel)]="data.feature_ratings[8].rating">
+                        <label class="form-check-label" for="48">NA</label>
+                    </div>
+                    <div class="form-check form-check-inline">
+                        <input class="form-check-input" type="radio" id="49" name="One-handed controls" value="0" [(ngModel)]="data.feature_ratings[8].rating">
+                        <label class="form-check-label" for="49">Worst</label>
+                    </div>
+                    <div class="form-check form-check-inline">
+                        <input class="form-check-input" type="radio" id="50" name="One-handed controls" value="1" [(ngModel)]="data.feature_ratings[8].rating">
+                        <label class="form-check-label" for="50">Bad</label>
+                    </div>
+                    <div class="form-check form-check-inline">
+                        <input class="form-check-input" type="radio" id="51" name="One-handed controls" value="2" [(ngModel)]="data.feature_ratings[8].rating">
+                        <label class="form-check-label" for="51">Okay</label>
+                    </div>
+                    <div class="form-check form-check-inline">
+                        <input class="form-check-input" type="radio" id="52" name="One-handed controls" value="3" [(ngModel)]="data.feature_ratings[8].rating">
+                        <label class="form-check-label" for="52">Good</label>
+                    </div>
+                    <div class="form-check form-check-inline">
+                        <input class="form-check-input" type="radio" id="53" name="One-handed controls" value="4" [(ngModel)]="data.feature_ratings[8].rating">
+                        <label class="form-check-label" for="53">Best</label>
+                    </div>
+                </div>
+
+                <label>Alternative Grip Solutions</label>
+                <div class="col mt-2" id="Alternative Grip Solutions">
+                    <div class="form-check form-check-inline">
+                        <input class="form-check-input" type="radio" id="54" name="Alternative Grip Solutions" value="-1" [(ngModel)]="data.feature_ratings[9].rating">
+                        <label class="form-check-label" for="54">NA</label>
+                    </div>
+                    <div class="form-check form-check-inline">
+                        <input class="form-check-input" type="radio" id="55" name="Alternative Grip Solutions" value="0" [(ngModel)]="data.feature_ratings[9].rating">
+                        <label class="form-check-label" for="55">Worst</label>
+                    </div>
+                    <div class="form-check form-check-inline">
+                        <input class="form-check-input" type="radio" id="56" name="Alternative Grip Solutions" value="1" [(ngModel)]="data.feature_ratings[9].rating">
+                        <label class="form-check-label" for="56">Bad</label>
+                    </div>
+                    <div class="form-check form-check-inline">
+                        <input class="form-check-input" type="radio" id="57" name="Alternative Grip Solutions" value="2" [(ngModel)]="data.feature_ratings[9].rating">
+                        <label class="form-check-label" for="57">Okay</label>
+                    </div>
+                    <div class="form-check form-check-inline">
+                        <input class="form-check-input" type="radio" id="58" name="Alternative Grip Solutions" value="3" [(ngModel)]="data.feature_ratings[9].rating">
+                        <label class="form-check-label" for="58">Good</label>
+                    </div>
+                    <div class="form-check form-check-inline">
+                        <input class="form-check-input" type="radio" id="59" name="Alternative Grip Solutions" value="4" [(ngModel)]="data.feature_ratings[9].rating">
+                        <label class="form-check-label" for="59">Best</label>
+                    </div>
+                </div>
+
+                <label>Adaptive Controller</label>
+                <div class="col mt-2" id="Adaptive Controller">
+                    <div class="form-check form-check-inline">
+                        <input class="form-check-input" type="radio" id="60" name="Adaptive Controller" value="-1" [(ngModel)]="data.feature_ratings[10].rating">
+                        <label class="form-check-label" for="60">NA</label>
+                    </div>
+                    <div class="form-check form-check-inline">
+                        <input class="form-check-input" type="radio" id="61" name="Adaptive Controller" value="0" [(ngModel)]="data.feature_ratings[10].rating">
+                        <label class="form-check-label" for="61">Worst</label>
+                    </div>
+                    <div class="form-check form-check-inline">
+                        <input class="form-check-input" type="radio" id="62" name="Adaptive Controller" value="1" [(ngModel)]="data.feature_ratings[10].rating">
+                        <label class="form-check-label" for="62">Bad</label>
+                    </div>
+                    <div class="form-check form-check-inline">
+                        <input class="form-check-input" type="radio" id="63" name="Adaptive Controller" value="2" [(ngModel)]="data.feature_ratings[10].rating">
+                        <label class="form-check-label" for="63">Okay</label>
+                    </div>
+                    <div class="form-check form-check-inline">
+                        <input class="form-check-input" type="radio" id="64" name="Adaptive Controller" value="3" [(ngModel)]="data.feature_ratings[10].rating">
+                        <label class="form-check-label" for="64">Good</label>
+                    </div>
+                    <div class="form-check form-check-inline">
+                        <input class="form-check-input" type="radio" id="65" name="Adaptive Controller" value="4" [(ngModel)]="data.feature_ratings[10].rating">
+                        <label class="form-check-label" for="65">Best</label>
+                    </div>
+                </div>
+
+            </div>
+        
+
+    </form>
+  <!-- </mat-form-field> -->
+</div>
+<div mat-dialog-actions class="justify-content-between">
+  <button class="btn btn-outline-danger" (click)="onNoClick()">Cancel</button>
+  <button class="btn btn-outline-success" [mat-dialog-close]="data" cdkFocusInitial>Post</button>
+</div>

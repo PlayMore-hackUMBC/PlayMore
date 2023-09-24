@@ -22,12 +22,10 @@ export class HomePageComponent implements OnInit {
     "text" : "this is my really excited review that i am too tired to write",
     "date_created" : "9/23/2023",
     "feature_ratings" : [
-      {"id" : "jdfkdsb",
-      "dis_id" : "HoH",
+      {"disability" : "Hard of Hearing or Deaf",
       "name" : "Subtitles",
       "rating" : 5}, 
-      {"id" : "sdbfiwbf",
-      "dis_id" : "Misc",
+      {"disability" : "Other",
       "name": "content warning",
       "rating" : 5}],
     "username": "ntackyt",
@@ -38,12 +36,10 @@ export class HomePageComponent implements OnInit {
     "text" : "this is my really excited review that i am too tired to write",
     "date_created" : "9/23/2023",
     "feature_ratings" : [
-      {"id" : "jdfkdsb",
-      "dis_id" : "HoH",
+      {"disability" : "Hard of Hearing or Deaf",
       "name" : "Subtitles",
       "rating" : 5}, 
-      {"id" : "sdbfiwbf",
-      "dis_id" : "Misc",
+      {"disability" : "Other",
       "name": "content warning",
       "rating" : 5}],
     "username": "ntackyt",
@@ -51,7 +47,15 @@ export class HomePageComponent implements OnInit {
   }
 
   async ngOnInit(){
-    this.games = this.games_serv.getGames().subscribe(res=>this.games=res)
+    console.log("wow")
+    this.games = this.games_serv.getGames().subscribe(res=>{
+      this.games=res; 
+      if (this.games.results !== undefined) {
+        this.games = this.games.results
+        console.log(this.games.results); // now string
+      }
+      // console.log(JSON.parse(JSON.stringify(res))).results}
+      })
   }
 
 

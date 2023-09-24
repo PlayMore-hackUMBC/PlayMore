@@ -13,7 +13,9 @@ export interface token_response {
 })
 export class GamesServiceService {
   
-  private games_server = "http://localhost:3000"
+  // private games_server = "http://localhost:3000"
+  // private games_server = "https://29st45e7ig.execute-api.us-west-2.amazonaws.com/production/{proxy+}"
+  private games_server = "https://api.rawg.io/api/games"
   private games: any;
 
   constructor(private http: HttpClient) {
@@ -38,12 +40,15 @@ export class GamesServiceService {
 
 
   public getGames(){
-    return this.http.post(this.games_server+"/v4/games", {})
+    return this.http.get(this.games_server, {params: {'key': '9233de06a6c14dc5bb592fc1e68c1d27'}})
   }
 
 
   public getGameById(gameId:number){
-    return this.http.post(this.games_server+"/v4/games/id", {id:gameId})
+    return this.http.get(this.games_server+"/"+gameId, {params: {'key': '9233de06a6c14dc5bb592fc1e68c1d27'}})
   }
 
 }
+
+
+

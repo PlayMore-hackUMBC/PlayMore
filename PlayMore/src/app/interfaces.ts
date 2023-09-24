@@ -47,8 +47,7 @@ export interface Review {
 }
 
 export interface Feature_Rating {
-    id : string;
-    dis_id : string;
+    disability : string;
     name : string;
     rating : number;
 }
