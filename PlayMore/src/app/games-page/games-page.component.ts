@@ -13,7 +13,13 @@ export class GamesPageComponent {
 
   
   async ngOnInit(){
-    this.games = this.games_serv.getGames().subscribe(res=>this.games=res)
+    this.games = this.games_serv.getGames().subscribe(res=>{
+      this.games=res; 
+      if (this.games.results !== undefined) {
+        this.games = this.games.results
+        console.log(this.games.results); // now string
+      }
+    })
   }
 
 
