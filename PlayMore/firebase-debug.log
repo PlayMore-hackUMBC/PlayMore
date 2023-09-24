@@ -1,0 +1,86 @@
+[debug] [2023-09-24T00:52:01.589Z] ----------------------------------------------------------------------
+[debug] [2023-09-24T00:52:01.591Z] Command:       C:\Program Files\nodejs\node.exe C:\Users\naomi\AppData\Roaming\npm\node_modules\firebase-tools\lib\bin\firebase.js deploy --token 1//0dnjgPXGN7m-fCgYIARAAGA0SNwF-L9IrKiOtUky4bkI2BC0ZV2Lh_c2m0YB8IzWpr-L5YzkqfamXKh8x86KIOB8KyaUGhso4coI
+[debug] [2023-09-24T00:52:01.591Z] CLI Version:   11.15.0
+[debug] [2023-09-24T00:52:01.591Z] Platform:      win32
+[debug] [2023-09-24T00:52:01.591Z] Node Version:  v16.17.1
+[debug] [2023-09-24T00:52:01.592Z] Time:          Sat Sep 23 2023 20:52:01 GMT-0400 (Eastern Daylight Time)
+[debug] [2023-09-24T00:52:01.593Z] ----------------------------------------------------------------------
+[debug] 
+[debug] [2023-09-24T00:52:01.656Z] Field ".hosting" in "firebase.json" is possibly invalid: should be object
+[debug] [2023-09-24T00:52:01.657Z] Object ".hosting[0]" in "firebase.json" has unknown property: {"additionalProperty":"frameworksBackend"}
+[debug] [2023-09-24T00:52:01.657Z] Object ".hosting[0]" in "firebase.json" has unknown property: {"additionalProperty":"frameworksBackend"}
+[debug] [2023-09-24T00:52:01.657Z] Field ".hosting[0]" in "firebase.json" is possibly invalid: should match some schema in anyOf
+[debug] [2023-09-24T00:52:01.657Z] Field ".hosting" in "firebase.json" is possibly invalid: should match some schema in anyOf
+[debug] [2023-09-24T00:52:01.665Z] > command requires scopes: ["email","openid","https://www.googleapis.com/auth/cloudplatformprojects.readonly","https://www.googleapis.com/auth/firebase","https://www.googleapis.com/auth/cloud-platform"]
+[debug] [2023-09-24T00:52:01.665Z] > authorizing via --token option
+[warn] !  Authenticating with `--token` is deprecated and will be removed in a future major version of `firebase-tools`. Instead, use a service account key with `GOOGLE_APPLICATION_CREDENTIALS`: https://cloud.google.com/docs/authentication/getting-started 
+[debug] [2023-09-24T00:52:01.667Z] [iam] checking project play-more-9e18b for permissions ["firebase.projects.get","firebasehosting.sites.update"]
+[debug] [2023-09-24T00:52:01.669Z] > refreshing access token with scopes: []
+[debug] [2023-09-24T00:52:01.670Z] >>> [apiv2][query] POST https://www.googleapis.com/oauth2/v3/token [none]
+[debug] [2023-09-24T00:52:01.670Z] >>> [apiv2][body] POST https://www.googleapis.com/oauth2/v3/token [omitted]
+[debug] [2023-09-24T00:52:01.800Z] <<< [apiv2][status] POST https://www.googleapis.com/oauth2/v3/token 200
+[debug] [2023-09-24T00:52:01.801Z] <<< [apiv2][body] POST https://www.googleapis.com/oauth2/v3/token [omitted]
+[debug] [2023-09-24T00:52:01.802Z] >>> [apiv2][query] POST https://cloudresourcemanager.googleapis.com/v1/projects/play-more-9e18b:testIamPermissions [none]
+[debug] [2023-09-24T00:52:01.802Z] >>> [apiv2][(partial)header] POST https://cloudresourcemanager.googleapis.com/v1/projects/play-more-9e18b:testIamPermissions x-goog-quota-user=projects/play-more-9e18b
+[debug] [2023-09-24T00:52:01.803Z] >>> [apiv2][body] POST https://cloudresourcemanager.googleapis.com/v1/projects/play-more-9e18b:testIamPermissions {"permissions":["firebase.projects.get","firebasehosting.sites.update"]}
+[debug] [2023-09-24T00:52:01.879Z] <<< [apiv2][status] POST https://cloudresourcemanager.googleapis.com/v1/projects/play-more-9e18b:testIamPermissions 200
+[debug] [2023-09-24T00:52:01.880Z] <<< [apiv2][body] POST https://cloudresourcemanager.googleapis.com/v1/projects/play-more-9e18b:testIamPermissions {"permissions":["firebase.projects.get","firebasehosting.sites.update"]}
+[debug] [2023-09-24T00:52:01.881Z] >>> [apiv2][query] GET https://firebase.googleapis.com/v1beta1/projects/play-more-9e18b [none]
+[debug] [2023-09-24T00:52:02.109Z] <<< [apiv2][status] GET https://firebase.googleapis.com/v1beta1/projects/play-more-9e18b 200
+[debug] [2023-09-24T00:52:02.110Z] <<< [apiv2][body] GET https://firebase.googleapis.com/v1beta1/projects/play-more-9e18b {"projectId":"play-more-9e18b","projectNumber":"378433330339","displayName":"Play More","name":"projects/play-more-9e18b","resources":{"hostingSite":"play-more-9e18b","realtimeDatabaseInstance":"play-more-9e18b-default-rtdb"},"state":"ACTIVE","etag":"1_c23cba5c-b327-48ef-a854-45f402f645b3"}
+[debug] [2023-09-24T00:52:07.086Z] >>> [apiv2][query] GET https://firebasehosting.googleapis.com/v1beta1/projects/play-more-9e18b/sites pageToken=&pageSize=10
+[debug] [2023-09-24T00:52:07.838Z] <<< [apiv2][status] GET https://firebasehosting.googleapis.com/v1beta1/projects/play-more-9e18b/sites 200
+[debug] [2023-09-24T00:52:07.838Z] <<< [apiv2][body] GET https://firebasehosting.googleapis.com/v1beta1/projects/play-more-9e18b/sites {"sites":[{"name":"projects/play-more-9e18b/sites/play-more-9e18b","defaultUrl":"https://play-more-9e18b.web.app","appId":"1:378433330339:web:e640e798d4c559b7057316","type":"DEFAULT_SITE"}]}
+[debug] [2023-09-24T00:52:07.839Z] >>> [apiv2][query] GET https://firebase.googleapis.com/v1beta1/projects/-/webApps/1:378433330339:web:e640e798d4c559b7057316/config [none]
+[debug] [2023-09-24T00:52:08.417Z] <<< [apiv2][status] GET https://firebase.googleapis.com/v1beta1/projects/-/webApps/1:378433330339:web:e640e798d4c559b7057316/config 200
+[debug] [2023-09-24T00:52:08.418Z] <<< [apiv2][body] GET https://firebase.googleapis.com/v1beta1/projects/-/webApps/1:378433330339:web:e640e798d4c559b7057316/config {"projectId":"play-more-9e18b","appId":"1:378433330339:web:e640e798d4c559b7057316","databaseURL":"https://play-more-9e18b-default-rtdb.firebaseio.com","storageBucket":"play-more-9e18b.appspot.com","apiKey":"AIzaSyBEE-EAuAjb8543g7MP6SHi5Ygi7dJPFhs","authDomain":"play-more-9e18b.firebaseapp.com","messagingSenderId":"378433330339"}
+[debug] [2023-09-24T00:53:00.681Z] Error
+    at scheduleTarget (C:\Users\naomi\AppData\Roaming\npm\node_modules\firebase-tools\lib\frameworks\angular\index.js:49:19)
+    at async build (C:\Users\naomi\AppData\Roaming\npm\node_modules\firebase-tools\lib\frameworks\angular\index.js:60:9)
+    at async prepareFrameworks (C:\Users\naomi\AppData\Roaming\npm\node_modules\firebase-tools\lib\frameworks\index.js:239:93)
+    at async deploy (C:\Users\naomi\AppData\Roaming\npm\node_modules\firebase-tools\lib\deploy\index.js:53:13)
+[error] 
+[error] Error: An unexpected error has occurred.
+[debug] [2023-09-24T00:53:12.090Z] ----------------------------------------------------------------------
+[debug] [2023-09-24T00:53:12.092Z] Command:       C:\Program Files\nodejs\node.exe C:\Users\naomi\AppData\Roaming\npm\node_modules\firebase-tools\lib\bin\firebase.js deploy --token 1//0dnjgPXGN7m-fCgYIARAAGA0SNwF-L9IrKiOtUky4bkI2BC0ZV2Lh_c2m0YB8IzWpr-L5YzkqfamXKh8x86KIOB8KyaUGhso4coI
+[debug] [2023-09-24T00:53:12.092Z] CLI Version:   11.15.0
+[debug] [2023-09-24T00:53:12.092Z] Platform:      win32
+[debug] [2023-09-24T00:53:12.092Z] Node Version:  v16.17.1
+[debug] [2023-09-24T00:53:12.093Z] Time:          Sat Sep 23 2023 20:53:12 GMT-0400 (Eastern Daylight Time)
+[debug] [2023-09-24T00:53:12.093Z] ----------------------------------------------------------------------
+[debug] 
+[debug] [2023-09-24T00:53:12.161Z] Field ".hosting" in "firebase.json" is possibly invalid: should be object
+[debug] [2023-09-24T00:53:12.162Z] Object ".hosting[0]" in "firebase.json" has unknown property: {"additionalProperty":"frameworksBackend"}
+[debug] [2023-09-24T00:53:12.162Z] Object ".hosting[0]" in "firebase.json" has unknown property: {"additionalProperty":"frameworksBackend"}
+[debug] [2023-09-24T00:53:12.162Z] Field ".hosting[0]" in "firebase.json" is possibly invalid: should match some schema in anyOf
+[debug] [2023-09-24T00:53:12.162Z] Field ".hosting" in "firebase.json" is possibly invalid: should match some schema in anyOf
+[debug] [2023-09-24T00:53:12.169Z] > command requires scopes: ["email","openid","https://www.googleapis.com/auth/cloudplatformprojects.readonly","https://www.googleapis.com/auth/firebase","https://www.googleapis.com/auth/cloud-platform"]
+[debug] [2023-09-24T00:53:12.169Z] > authorizing via --token option
+[warn] !  Authenticating with `--token` is deprecated and will be removed in a future major version of `firebase-tools`. Instead, use a service account key with `GOOGLE_APPLICATION_CREDENTIALS`: https://cloud.google.com/docs/authentication/getting-started 
+[debug] [2023-09-24T00:53:12.171Z] [iam] checking project play-more-9e18b for permissions ["firebase.projects.get","firebasehosting.sites.update"]
+[debug] [2023-09-24T00:53:12.173Z] > refreshing access token with scopes: []
+[debug] [2023-09-24T00:53:12.175Z] >>> [apiv2][query] POST https://www.googleapis.com/oauth2/v3/token [none]
+[debug] [2023-09-24T00:53:12.175Z] >>> [apiv2][body] POST https://www.googleapis.com/oauth2/v3/token [omitted]
+[debug] [2023-09-24T00:53:12.275Z] <<< [apiv2][status] POST https://www.googleapis.com/oauth2/v3/token 200
+[debug] [2023-09-24T00:53:12.275Z] <<< [apiv2][body] POST https://www.googleapis.com/oauth2/v3/token [omitted]
+[debug] [2023-09-24T00:53:12.276Z] >>> [apiv2][query] POST https://cloudresourcemanager.googleapis.com/v1/projects/play-more-9e18b:testIamPermissions [none]
+[debug] [2023-09-24T00:53:12.276Z] >>> [apiv2][(partial)header] POST https://cloudresourcemanager.googleapis.com/v1/projects/play-more-9e18b:testIamPermissions x-goog-quota-user=projects/play-more-9e18b
+[debug] [2023-09-24T00:53:12.276Z] >>> [apiv2][body] POST https://cloudresourcemanager.googleapis.com/v1/projects/play-more-9e18b:testIamPermissions {"permissions":["firebase.projects.get","firebasehosting.sites.update"]}
+[debug] [2023-09-24T00:53:12.404Z] <<< [apiv2][status] POST https://cloudresourcemanager.googleapis.com/v1/projects/play-more-9e18b:testIamPermissions 200
+[debug] [2023-09-24T00:53:12.404Z] <<< [apiv2][body] POST https://cloudresourcemanager.googleapis.com/v1/projects/play-more-9e18b:testIamPermissions {"permissions":["firebase.projects.get","firebasehosting.sites.update"]}
+[debug] [2023-09-24T00:53:12.406Z] >>> [apiv2][query] GET https://firebase.googleapis.com/v1beta1/projects/play-more-9e18b [none]
+[debug] [2023-09-24T00:53:12.679Z] <<< [apiv2][status] GET https://firebase.googleapis.com/v1beta1/projects/play-more-9e18b 200
+[debug] [2023-09-24T00:53:12.680Z] <<< [apiv2][body] GET https://firebase.googleapis.com/v1beta1/projects/play-more-9e18b {"projectId":"play-more-9e18b","projectNumber":"378433330339","displayName":"Play More","name":"projects/play-more-9e18b","resources":{"hostingSite":"play-more-9e18b","realtimeDatabaseInstance":"play-more-9e18b-default-rtdb"},"state":"ACTIVE","etag":"1_c23cba5c-b327-48ef-a854-45f402f645b3"}
+[debug] [2023-09-24T00:53:16.636Z] >>> [apiv2][query] GET https://firebasehosting.googleapis.com/v1beta1/projects/play-more-9e18b/sites pageToken=&pageSize=10
+[debug] [2023-09-24T00:53:17.021Z] <<< [apiv2][status] GET https://firebasehosting.googleapis.com/v1beta1/projects/play-more-9e18b/sites 200
+[debug] [2023-09-24T00:53:17.021Z] <<< [apiv2][body] GET https://firebasehosting.googleapis.com/v1beta1/projects/play-more-9e18b/sites {"sites":[{"name":"projects/play-more-9e18b/sites/play-more-9e18b","defaultUrl":"https://play-more-9e18b.web.app","appId":"1:378433330339:web:e640e798d4c559b7057316","type":"DEFAULT_SITE"}]}
+[debug] [2023-09-24T00:53:17.022Z] >>> [apiv2][query] GET https://firebase.googleapis.com/v1beta1/projects/-/webApps/1:378433330339:web:e640e798d4c559b7057316/config [none]
+[debug] [2023-09-24T00:53:17.525Z] <<< [apiv2][status] GET https://firebase.googleapis.com/v1beta1/projects/-/webApps/1:378433330339:web:e640e798d4c559b7057316/config 200
+[debug] [2023-09-24T00:53:17.525Z] <<< [apiv2][body] GET https://firebase.googleapis.com/v1beta1/projects/-/webApps/1:378433330339:web:e640e798d4c559b7057316/config {"projectId":"play-more-9e18b","appId":"1:378433330339:web:e640e798d4c559b7057316","databaseURL":"https://play-more-9e18b-default-rtdb.firebaseio.com","storageBucket":"play-more-9e18b.appspot.com","apiKey":"AIzaSyBEE-EAuAjb8543g7MP6SHi5Ygi7dJPFhs","authDomain":"play-more-9e18b.firebaseapp.com","messagingSenderId":"378433330339"}
+[debug] [2023-09-24T00:53:46.398Z] Error
+    at scheduleTarget (C:\Users\naomi\AppData\Roaming\npm\node_modules\firebase-tools\lib\frameworks\angular\index.js:49:19)
+    at async build (C:\Users\naomi\AppData\Roaming\npm\node_modules\firebase-tools\lib\frameworks\angular\index.js:60:9)
+    at async prepareFrameworks (C:\Users\naomi\AppData\Roaming\npm\node_modules\firebase-tools\lib\frameworks\index.js:239:93)
+    at async deploy (C:\Users\naomi\AppData\Roaming\npm\node_modules\firebase-tools\lib\deploy\index.js:53:13)
+[error] 
+[error] Error: An unexpected error has occurred.
