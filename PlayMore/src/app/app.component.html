@@ -19,6 +19,8 @@
       </ul>
 
       <form class="col-12 col-lg-auto mb-3 mb-lg-0 me-lg-3" role="search" >
+      <form class="d-flex">
+
         <!-- <input type="search" class="form-control form-control-dark text-bg-dark" placeholder="Search..." aria-label="Search"> -->
         <input class="form-control" type="search" placeholder="Search" aria-label="Search" name="search" id="name" [(ngModel)]="this.searchval">
         <button class="btn btn-outline-light" type="submit" routerLink="search/{{this.searchval}}">
@@ -27,7 +29,7 @@
           </svg>
         </button>
         <!-- <button class="btn btn-outline-success" type="submit">Search</button> -->
-        
+        </form>
       </form>
 
       <!-- <div class="text-end">
