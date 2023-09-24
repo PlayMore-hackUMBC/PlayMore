@@ -37,16 +37,14 @@ export class GameTemplateComponent implements OnInit {
     // Find the game that correspond with the id provided in route.
     console.log("calling the get game by id")
     this.gameService.getGameById(gameIdFromRoute).subscribe(resp => {this.game=resp; 
-      console.log(resp)
-    
-    
-      this._firestoreService.get_reviews_by_game(this.game.id).subscribe((value : any[]) => {
-        this.reviews = value;
-        console.log(this.reviews)
-      })
-    
+      console.log(resp)   
     });
 
+
+    this._firestoreService.get_reviews_by_game(String(gameIdFromRoute)).subscribe((value : any[]) => {
+      this.reviews = value;
+      console.log(this.reviews)
+    })
   }
 
 

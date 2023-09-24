@@ -85,7 +85,7 @@
                             </div>
                             <div class="col-sm-4">
                                 <div *ngFor="let feat of review.feature_ratings">
-                                    <div class="container align-content-left">
+                                    <div class="container align-content-left" *ngIf="feat.rating > 0">
                                         <div class="row justify-content-left">
                                             <div class="col-sm-8 text-left">
                                                 {{feat.name}}
