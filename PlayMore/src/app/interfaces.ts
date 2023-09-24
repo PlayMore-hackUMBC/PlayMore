@@ -49,5 +49,5 @@ export interface Scores {
     hard_of_hearing: number,
     vision_impairment : number,
     motor_disability: number,
-    misc: number
+    other_disability: number
 }

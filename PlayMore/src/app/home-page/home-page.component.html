@@ -30,7 +30,7 @@
         <div *ngFor="let game of games">
           <div class="col">
                 <div class="card shadow-sm" routerLink="/games/{{game.id}}">
-                  <img class="bd-placeholder-img card-img-top" width="100%" height="225"  src="{{game.background_image}}" role="img" aria-label="Placeholder: Thumbnail" preserveAspectRatio="xMidYMid slice" focusable="false"><title>Placeholder</title> 
+                  <img class="bd-placeholder-img card-img-top" width="100%" height="225"  src="{{game.background_image}}" role="img" aria-label="Placeholder: Thumbnail" preserveAspectRatio="xMidYMid slice" focusable="false"  data-toggle="tooltip" data-placement="right" title="{{game.name}}">
 
                     <div class="card-body">
                     <p class="card-text">{{game.name}}</p>
@@ -75,10 +75,10 @@
                         </div>
                         <div class="container">
                             <div class="row mt-3 mb-3 justify-content-between">
-                                <div class="col-sm-8">
+                                <div class="col-sm-6">
                                     {{review.text}}
                                 </div>
-                                <div class="col-sm-4">
+                                <div class="col-sm-6">
                                     <div *ngFor="let feat of review.feature_ratings">
                                         <div class="container align-content-left" *ngIf="feat.rating > 0">
                                             <div class="row justify-content-left">
